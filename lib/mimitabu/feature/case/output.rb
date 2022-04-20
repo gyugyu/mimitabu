@@ -16,7 +16,7 @@ module Mimitabu
 
         def run(runner)
           pre = runner.fetch_condition_step_result(requirement_tag)
-          result = pre.each do |p|
+          result = pre.map do |p|
             obj = [[requirement_tag.to_sym, p]].to_h
             run_single(obj)
           end
