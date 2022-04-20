@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= feature.file %></title>
+  </head>
+
+  <body>
+    <h1><%= feature.name %></h1>
+    <p><%= feature.file %></p>
+
+    <% feature.cases.each.with_index do |kase, i| %>
+      <table>
+        <thead>
+          <tr>
+            <% kase.premises.each do |premise| %>
+              <th><%= premise.step %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% cases[i].each do |row| %>
+            <tr>
+              <% row.each do |col| %>
+                <td><%= col %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </body>
+</html>
