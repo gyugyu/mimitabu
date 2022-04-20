@@ -30,7 +30,7 @@ module Mimitabu
         false
       end
 
-      def call(*args)
+      def run(*args)
         sequence_result = @sequences.map { |sequence| [sequence.tag, sequence.next] }.to_h
         @proc.call(*(args + [sequence_result]))
       end

@@ -16,7 +16,7 @@ module Mimitabu
 
         def run(runner)
           @steps.each do |a_step|
-            result = a_step.call
+            result = a_step.run
             runner.add_premise_step_result(tag, result)
           end
         end

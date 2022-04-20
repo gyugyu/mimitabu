@@ -21,7 +21,7 @@ module Mimitabu
         def run(runner)
           @steps.each do |step|
             pre = runner.fetch_premise_step_result(requirement_tag) unless @data[:require].nil?
-            result = with.map { |w| step.call(pre, with: w) }
+            result = with.map { |w| step.run(pre, with: w) }
             runner.add_condition_step_result(tag, result)
           end
         end
