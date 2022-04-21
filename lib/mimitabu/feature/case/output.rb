@@ -8,8 +8,9 @@ module Mimitabu
           @data = data
         end
 
-        def compile(premises, conditions, support_code)
+        def compile(_premises, conditions, _support_code)
           return if @data[:require].nil?
+
           requirement = conditions.find { |premise| premise.tag == requirement_tag }
           raise if requirement.nil?
         end
@@ -25,13 +26,13 @@ module Mimitabu
 
         private
 
-          def requirement_tag
-            @data[:require].split('.')[1]
-          end
+        def requirement_tag
+          @data[:require].split(".")[1]
+        end
 
-          def run_single(obj)
-            binding.eval(@data[:run])
-          end
+        def run_single(obj)
+          binding.eval(@data[:run]) # rubocop:disable Security/Eval
+        end
       end
     end
   end

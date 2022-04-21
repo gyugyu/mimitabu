@@ -9,11 +9,10 @@ module Mimitabu
         end
 
         def compile(premises, support_code)
-          @steps = support_code.step_definitions.select do |step_definition|
-            step_definition.match?(step)
-          end
+          @steps = support_code.step_definitions.grep(step)
 
           return if @data[:require].nil?
+
           requirement = premises.find { |premise| premise.tag == requirement_tag }
           raise if requirement.nil?
         end
@@ -40,9 +39,9 @@ module Mimitabu
 
         private
 
-          def requirement_tag
-            @data[:require].split('.')[1]
-          end
+        def requirement_tag
+          @data[:require].split(".")[1]
+        end
       end
     end
   end

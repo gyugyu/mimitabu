@@ -14,8 +14,8 @@ module Mimitabu
       register_sequences
     end
 
-    def step(stringOrRegexp, **options, &proc)
-      @step_definitions << Runtime::StepDefinition.new(stringOrRegexp, options, &proc)
+    def step(string_or_regexp, **options, &proc)
+      @step_definitions << Runtime::StepDefinition.new(string_or_regexp, options, &proc)
     end
 
     def sequence(tag, &proc)
@@ -24,10 +24,10 @@ module Mimitabu
 
     private
 
-      def register_sequences
-        @step_definitions.each do |step_definition|
-          step_definition.register_sequences(@sequences)
-        end
+    def register_sequences
+      @step_definitions.each do |step_definition|
+        step_definition.register_sequences(@sequences)
       end
+    end
   end
 end

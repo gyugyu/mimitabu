@@ -9,9 +9,7 @@ module Mimitabu
         end
 
         def compile(support_code)
-          @steps = support_code.step_definitions.select do |step_definition|
-            step_definition.match?(step)
-          end
+          @steps = support_code.step_definitions.grep(step)
         end
 
         def run(runner)

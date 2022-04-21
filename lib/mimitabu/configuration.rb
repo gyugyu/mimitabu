@@ -26,13 +26,13 @@ module Mimitabu
 
     private
 
-      def default_options
-        {
-          autoload_code_paths: ["samplers/step_definitions"],
-          feature_file_paths: ["samplers/features"],
-          formatter: "html",
-          output_dir: "out",
-        }
-      end
+    def default_options
+      {
+        autoload_code_paths: ["samplers/step_definitions"],
+        feature_file_paths: ["samplers/features"],
+        formatter: "html",
+        output_dir: "out"
+      }
+    end
   end
 end
