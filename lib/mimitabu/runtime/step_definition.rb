@@ -8,8 +8,8 @@ module Mimitabu
       attr_reader :sequences
 
       def initialize(string_or_regexp, options, &proc)
-        @haystack = string_or_regexp.is_a? String ? string_or_regexp : nil
-        @pattern = string_or_regexp.is_a? Regexp ? string_or_regexp : nil
+        @haystack = string_or_regexp.is_a?(String) ? string_or_regexp : nil
+        @pattern = string_or_regexp.is_a?(Regexp) ? string_or_regexp : nil
         @options = options
         @proc = proc
       end
