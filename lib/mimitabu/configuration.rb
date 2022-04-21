@@ -8,8 +8,8 @@ module Mimitabu
       end
     end
 
-    def initialize
-      @options = default_options
+    def initialize(options = {})
+      @options = default_options.merge(options)
     end
 
     def step_definition_files

@@ -1,0 +1,16 @@
+feature: Fixture
+
+cases:
+  - premises:
+      - tag: premise
+        step: Create Premise
+    conditions:
+      - tag: condition
+        step: Create Condition
+        require: premises.premise
+        with:
+          - Condition A
+          - Condition B
+    outputs:
+      - run: obj[:condition][:key]
+        require: conditions.condition
