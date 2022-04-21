@@ -10,7 +10,9 @@ module Mimitabu
     end
 
     def create(feature)
-      FileUtils.rm_r(@configuration.output_dir, secure: true)
+      if File.exist?(@configuration.output_dir)
+        FileUtils.rm_r(@configuration.output_dir, secure: true)
+      end
       FileUtils.mkdir_p(@configuration.output_dir)
       @html.create(feature)
     end
